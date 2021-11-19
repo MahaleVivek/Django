@@ -1,5 +1,9 @@
 {% extends 'users/layout.html' %}
 
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'users/style.css' %}" />
+
 {% block body %}
 
     {% if message %}
@@ -7,9 +11,12 @@
     {% endif %}
 
     <form action="{% url 'login' %}" method="post">
-        {% csrf_token %}            
-        <input type="text" name="username" placeholder="Uername">
-        <input type="password" name="password" placeholder="Password">
-        <input type="submit" value="Login">
+	<span class='head'>Nihongo</span><span class='sec'>Studio</span>
+        <div class="container">
+        	{% csrf_token %}            
+        	<input type="text" name="username" placeholder="Uername">
+        	<input type="password" name="password" placeholder="Password">
+        	<button type="submit" value="Login">Login</button>
+	</div>
     </form>
 {% endblock %}
